@@ -1,0 +1,612 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:SimSun;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<h3 style='margin-top:7.9pt;background:white'><span style='font-size:16.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Jenkins setup -
+Install Java, Jenkins, Maven, Tomcat on Ubuntu EC2 - How to install Java,
+Jenkins, Maven, Tomcat on Ubuntu EC2</span></h3>
+
+<p class=MsoNormal style='margin-bottom:9.9pt;background:white'><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'>Please follow steps to install Java, Jenkins, Maven, Tomcat on Ubuntu
+EC2. Jenkins is a java based application, so you need to install Java
+first.&nbsp;<br>
+<br>
+</span><b><u><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:yellow'>Java Setup on Ubuntu</span></u></b><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'><br>
+<br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>sudo apt-get update</span><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'><br>
+<br>
+<b><u>Install Java 11</u></b><br>
+<br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>sudo apt-get install default-jdk -y</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://2.bp.blogspot.com/-QemoF2aJnRA/XLi069eVCJI/AAAAAAAAA-g/f55mLCYYUJIG2IfFGoowh7fDv675IB-YgCLcBGAs/s1600/Screen+Shot+2019-04-18+at+12.33.08+PM.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=152 id="Picture 1"
+src="Jenkins,Maven,Tomcat%20Installation_files/image001.png" alt="IMG_256"></span></a></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Now lets do
+Jenkins installation</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:9.9pt;background:white'><b><u><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+yellow'>Jenkins Setup</span></u></b><span style='font-size:9.5pt;font-family:
+"Arial",sans-serif;color:#222222;background:white'><br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'><br>
+<b><u>Add Repository key to the system</u></b></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>wget -q -O
+-&nbsp;</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#CC6611;background:yellow'><a
+href="https://pkg.jenkins.io/debian/jenkins-ci.org.key"
+target="https://www.coachdevops.com/2019/02/_blank"><span style='color:#CC6611;
+text-decoration:none'>https://pkg.jenkins.io/debian/jenkins-ci.org.key</span></a></span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+yellow'>&nbsp;| sudo apt-key add -</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://2.bp.blogspot.com/-cd1SVp8YoIM/XGMgy9pykrI/AAAAAAAAA1c/XkecewUWbzUMoEDJ_h1-5CiRpFU-q8DAQCLcBGAs/s1600/jenkins+install+1.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=15 id="Picture 2"
+src="Jenkins,Maven,Tomcat%20Installation_files/image002.png" alt="IMG_257"></span></a></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt'><b><u><span style='font-size:
+9.5pt;font-family:"Arial",sans-serif;color:#222222;background:white'>Append
+debian package repo address to the system</span></u></b></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>echo deb&nbsp;</span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;background:
+yellow'><a href="http://pkg.jenkins.io/debian-stable"
+target="https://www.coachdevops.com/2019/02/_blank"><span style='color:#CC6611;
+text-decoration:none'>http://pkg.jenkins.io/debian-stable</span></a></span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+yellow'>&nbsp;binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://4.bp.blogspot.com/-cdUxPb8fQYM/XGMg4VLJg6I/AAAAAAAAA1g/cgFbWED0ZCEy7bDhAcmsmrvYVN-NpzJPgCLcBGAs/s1600/jenkins+install+2.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=19 id="Picture 3"
+src="Jenkins,Maven,Tomcat%20Installation_files/image003.png" alt="IMG_258"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo apt-get
+update</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-9ubM5hn5lxs/XGMhKHD7QSI/AAAAAAAAA1w/MwhXfDKYRJ4b4PVI7JhGgft5jZZ3Mr1RACLcBGAs/s1600/jenkins+install+3.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=133 id="Picture 4"
+src="Jenkins,Maven,Tomcat%20Installation_files/image004.png" alt="IMG_259"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><b><u><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Install Jenkins</span></u></b></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo apt-get install
+jenkins -y</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-WT_PTYv9Ypc/XGMhHPo-ahI/AAAAAAAAA1o/OOZerPFskbEcIPNNG8fSCCvbWXCB0y2AACLcBGAs/s1600/install+jenkins+4.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=277 id="Picture 5"
+src="Jenkins,Maven,Tomcat%20Installation_files/image005.png" alt="IMG_260"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'><br>
+The above screenshot should confirm that Jenkins is successfully installed.<br>
+<br>
+</span><b><u><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:yellow'>Access Jenkins in web browser</span></u></b><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'><br>
+<br>
+Now Go to AWS console.<br>
+&nbsp; Click on EC2, click on running instances link. Select the checkbox of
+EC2 you are installing Java and Jenkins.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='font-size:12.0pt;font-family:SimSun;color:#222222;background:white'>&nbsp;
+Click on Action.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='font-size:12.0pt;font-family:SimSun;color:#222222;background:white'>&nbsp;
+Copy the value from step 4 that says --&gt; Connect to your instance using
+its&nbsp;</span><span style='font-size:12.0pt;font-family:SimSun;color:#222222;
+background:yellow'>Public DNS</span><span style='font-size:12.0pt;font-family:
+SimSun;color:#222222;background:white'>:&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:0in;margin-right:.5in;
+margin-bottom:0in;margin-left:.5in;margin-bottom:.0001pt;text-align:center;
+background:white'><span style='color:black'><a
+href="https://4.bp.blogspot.com/-Wa6eVcLeeo8/XGMhUBTk6jI/AAAAAAAAA10/66qGZD_4_vMvsounBMbF-io42-zDtivBwCLcBGAs/s1600/Ec2+connect.png"><span
+style='font-size:12.0pt;font-family:SimSun;color:#CC6611;border:solid #EEEEEE 1.0pt;
+padding:0in;background:white;text-decoration:none'><img border=0 width=320
+height=127 id="Picture 6"
+src="Jenkins,Maven,Tomcat%20Installation_files/image006.png" alt="IMG_261"></span></a></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Now go to
+browser. enter public dns name or public IP address with port no 8080.This is
+how to select public DNS name:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='font-size:12.0pt;font-family:SimSun;color:#CC6611;background:yellow'><a
+href="http://public_dns_name:8080/"
+target="https://www.coachdevops.com/2019/02/_blank"><span style='color:#CC6611;
+text-decoration:none'>http://EC2_public_dns_name:8080</span></a></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='font-size:12.0pt;font-family:SimSun;color:#222222;background:white'>Unlock
+Jenkins<br>
+You may get screen, enter the below command in Git bash( Ubuntu console)</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://1.bp.blogspot.com/-lZNzNSDqR64/XGMhfegh3xI/AAAAAAAAA18/G2mjB1Wh3cgvWClzBiEouGzPqS92pboWACLcBGAs/s1600/unlock+jenkins.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=130 id="Picture 7"
+src="Jenkins,Maven,Tomcat%20Installation_files/image007.png" alt="IMG_262"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><b><u><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Get the password
+from the below file</span></u></b><span style='font-size:9.5pt;font-family:
+"Arial",sans-serif;color:#222222;background:white'><br>
+<br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:black;
+background:yellow'>sudo cat /var/lib/jenkins/secrets/initialAdminPassword</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-yLsKpW5f3hk/XGM1k5o1HEI/AAAAAAAAA2o/6z0ju03sErwei8HmrMkc3MdK5uExtRt4QCLcBGAs/s1600/admin+password.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=17 id="Picture 8"
+src="Jenkins,Maven,Tomcat%20Installation_files/image008.png" alt="IMG_263"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'><br>
+Copy the password and paste in the browser</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Click on install
+suggested plug-ins.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://2.bp.blogspot.com/-kDdG7x6lADk/XGMhoqPbAEI/AAAAAAAAA2A/N0g4K_epeZ0H7hAOj-eYPz6EdxjSmixnwCLcBGAs/s1600/customize+jenkins.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=182 id="Picture 9"
+src="Jenkins,Maven,Tomcat%20Installation_files/image009.png" alt="IMG_264"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Also create user
+name and password.</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>enter everything
+as admin. at least user name as admin password as admin</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-1a9vEIb0xI0/XGMh0kxggeI/AAAAAAAAA2I/yUqJ0O9ODT4vHqnp9fEiGLpRAoCT-1XEACLcBGAs/s1600/create+admin.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=208 id="Picture 10"
+src="Jenkins,Maven,Tomcat%20Installation_files/image010.png" alt="IMG_265"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Click on Save
+and Finish. Click on Start to Use.</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><b><u><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>Maven</span></u></b><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'><br>
+Maven is a build tool used for building Java applications. Please&nbsp;</span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;background:
+white'><a
+href="https://www.cidevops.com/2020/03/what-is-maven-why-we-need-maven.html"><span
+style='color:#CC6611;text-decoration:none'>click</span></a></span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'>&nbsp;here to learn more about Maven. You can install Maven by executing
+below command:<br>
+<br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>sudo apt install maven -y</span></p>
+
+<p class=MsoNormal style='margin-bottom:9.9pt;background:white'><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'><br>
+you can type&nbsp;</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:yellow'>mvn --version</span><span style='font-size:
+9.5pt;font-family:"Arial",sans-serif;color:#222222;background:white'><br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>you should see the below output.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://1.bp.blogspot.com/-gTbGh3P9rCQ/XP_UVt3hg6I/AAAAAAAABHQ/zxRR1DVn5BoIKb36qUb9RI6cop1GgoVmQCLcBGAs/s1600/Screen+Shot+2019-06-11+at+11.18.02+AM.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=72 id="Picture 11"
+src="Jenkins,Maven,Tomcat%20Installation_files/image011.png" alt="IMG_266"></span></a></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:9.9pt;background:white'><b><u><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+yellow'>Tomcat Installation</span></u></b><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'><br>
+<br>
+Tomcat is a web server or web container where java web application can be
+deployed by developers. You can learn more about by&nbsp;</span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;background:
+white'><a
+href="https://www.cidevops.com/2020/03/what-is-tomcat-why-we-need-tomcat.html"><span
+style='color:#CC6611;text-decoration:none'>clicking</span></a></span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'>&nbsp;this URL.&nbsp; Tomcat can be installed by executing below
+commands:<br>
+<br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>sudo apt-get update</span><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'><br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>sudo apt-get install tomcat9 -y</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-_KP-UM7Lk7k/XGMiC7-0MEI/AAAAAAAAA2Q/_NHP5FkUjPcwNTIdL7cV4EeNQ4rMyofogCLcBGAs/s1600/Tomcat+install.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=218 id="Picture 12"
+src="Jenkins,Maven,Tomcat%20Installation_files/image012.png" alt="IMG_267"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo apt-get
+install tomcat9-docs tomcat9-examples tomcat9-admin -y</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-jTIXiz7ZZ8Q/XGMiJySEPUI/AAAAAAAAA2U/OiShjOMxXcopHpv40Mv9fdlQdP8L1uMoACLcBGAs/s1600/tomcat+admin.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=119 id="Picture 13"
+src="Jenkins,Maven,Tomcat%20Installation_files/image013.png" alt="IMG_268"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo cp -r /usr/share/tomcat9-admin/*
+/var/lib/tomcat9/webapps/ -v</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-Z9S_wzVGZo0/XGMiRkTFUqI/AAAAAAAAA2Y/ERiccd5mPBEdICY3D9ngp1GzKLeH7KRRQCLcBGAs/s1600/copy+tomcat.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=141 id="Picture 14"
+src="Jenkins,Maven,Tomcat%20Installation_files/image014.png" alt="IMG_269"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>Click on this
+link to know how to make changes using Vi editor.</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#CC6611;background:lime'><a
+href="http://www.cidevops.com/2018/03/how-to-make-changes-in-linux-machine.html"
+target="https://www.coachdevops.com/2019/02/_blank"><span style='color:#CC6611;
+text-decoration:none'>http://www.cidevops.com/2018/03/how-to-make-changes-in-linux-machine.html</span></a></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'><br>
+<b><u>Change port no from 8080 to 8090</u></b><br>
+Tomcat default port is also 8080, since we have already used 8080 for Jenkins,
+we need to change from 8080 to 8090. You can change by modifying server.xml</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo vi
+/var/lib/tomcat9/conf/server.xml</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://1.bp.blogspot.com/-2uSsKpKfJw8/XGMfQOI1DAI/AAAAAAAAA1M/8TSSPC9xBRQQOLvPoP7ic1WCV4lNxYAAgCLcBGAs/s1600/tomcat-server.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=161 id="Picture 15"
+src="Jenkins,Maven,Tomcat%20Installation_files/image015.png" alt="IMG_270"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>you need to
+scroll down by clicking down arrow button in this file change the port no from
+8080 to&nbsp;</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:fuchsia'>8090</span><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>&nbsp;at line
+starting with &lt;Connector port=&quot;</span><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>8080</span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;background:
+white'>&quot; protocol=&quot;HTTP/1.1&quot;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><b><u><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>setup an user in
+tomcat&nbsp;</span></u></b><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:white'><br>
+<br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>sudo vi /var/lib/tomcat9/conf/tomcat-users.xml</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='font-size:12.0pt;font-family:SimSun;color:#222222;background:white'>Scroll
+down all the way to the end of the file,<br>
+Add the below lines in second last line above (above &lt;/tomcat-users&gt;)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='font-size:12.0pt;font-family:SimSun;color:#222222;background:yellow'>&lt;role
+rolename=&quot;manager-gui&quot;/&gt;<br>
+&lt;role rolename=&quot;manager-script&quot;/&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;background:white'><span
+style='font-size:12.0pt;font-family:SimSun;color:#222222;background:yellow'>&lt;user
+username=&quot;tomcat&quot; password=&quot;password&quot;
+roles=&quot;manager-gui,manager-script&quot;/&gt;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://3.bp.blogspot.com/-fdDyUKrr1Cc/XGMfHKlF7gI/AAAAAAAAA1E/PD7aVrVwIEgJAxyQ0TsU2WgncwrpJBFkACLcBGAs/s1600/tomcat+users.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=202 id="Picture 16"
+src="Jenkins,Maven,Tomcat%20Installation_files/image016.png" alt="IMG_271"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><b><u><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Add more memory
+to JVM</span></u></b></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo vi
+/etc/default/tomcat9</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:white'><br>
+<br>
+Look for the line starting JAVA_OPTS and comment that line by adding #.</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>Add the below line:<br>
+</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#222222;
+background:yellow'>JAVA_OPTS=&quot;-Djava.security.egd=file:/dev/./urandom
+-Djava.awt.headless=true -Xmx512m -XX:MaxPermSize=512m
+-XX:+UseConcMarkSweepGC&quot;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://4.bp.blogspot.com/-yJxjBhxeJg4/XGMe-59zI4I/AAAAAAAAA08/PVpNWkUa2YI_LTUAGbr2Vsz3KIGLoMCHACLcBGAs/s1600/jvm+usage.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=54 id="Picture 17"
+src="Jenkins,Maven,Tomcat%20Installation_files/image017.png" alt="IMG_272"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo systemctl
+restart tomcat9</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>sudo systemctl
+status tomcat9</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://2.bp.blogspot.com/-7xvlbpwc0ng/XGMe0Vzqj6I/AAAAAAAAA04/yVlCeDqMJhU5_KJyaYi-_812idBLCGaFACLcBGAs/s1600/tomcat8+status.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=112 id="Picture 18"
+src="Jenkins,Maven,Tomcat%20Installation_files/image018.png" alt="IMG_273"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>you may get
+message that says tomcat is active running.</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:white'>press&nbsp;</span><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:red;background:
+white'>q</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:white'>&nbsp;for quitting from that window. Now go to
+browser, copy public DNS.<br>
+<br>
+&nbsp;</span><span style='color:black'><a
+href="https://4.bp.blogspot.com/-Wa6eVcLeeo8/XGMhUBTk6jI/AAAAAAAAA10/66qGZD_4_vMvsounBMbF-io42-zDtivBwCLcBGAs/s1600/Ec2+connect.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=127 id="Picture 19"
+src="Jenkins,Maven,Tomcat%20Installation_files/image006.png" alt="IMG_274"></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#CC6611;background:white'><a
+href="http://public_dns_name:8090/"
+target="https://www.coachdevops.com/2019/02/_blank"><span style='color:#CC6611;
+text-decoration:none'>http://</span><span style='color:red;text-decoration:
+none'>Ec2_public_dns_name</span><span style='color:#CC6611;text-decoration:
+none'>:8090</span></a></span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:white'><br>
+&nbsp;</span></p>
+
+<p class=MsoNormal style='background:white'><span style='font-size:9.5pt;
+font-family:"Arial",sans-serif;color:#222222;background:yellow'>You should see
+a page that says.</span><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:white'><br>
+</span><b><span style='font-size:13.5pt;font-family:"Arial",sans-serif;
+color:black;background:lime'>It works!!!!</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;background:white'><span
+style='color:black'><a
+href="https://1.bp.blogspot.com/-WLf0BF9Cvw0/XGMepUFVLoI/AAAAAAAAA00/38CgG3sPGQY6_qEY7sdB1wOT1FxvbD2awCLcBGAs/s1600/tomcat+works.png"><span
+style='font-size:9.5pt;font-family:"Arial",sans-serif;color:#CC6611;border:
+solid #EEEEEE 1.0pt;padding:0in;background:white;text-decoration:none'><img
+border=0 width=320 height=99 id="Picture 20"
+src="Jenkins,Maven,Tomcat%20Installation_files/image019.png" alt="IMG_275"></span></a></span></p>
+
+<p class=MsoNormal><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
+color:#222222;background:white'><br>
+That's it. You have setup both Jenkins and Tomcat successfully!!</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
